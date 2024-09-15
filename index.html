@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Performance Summary</title>
+
+    <!-- Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman';
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px;
+        }
+        
+        .result-section {
+            background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
+            color: white;
+            flex: 1;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .result-section h2 {
+            font-size: 25px;
+        }
+        
+        .result-section p.result-text {
+            font-size: 15px;
+        }
+        
+        .score-circle {
+            background-color: #3e45d6;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px auto;
+        }
+        
+        .score-circle h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        
+        .score-circle p {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .summary-section {
+            padding: 40px;
+            flex: 1;
+        }
+        
+        .summary-section h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-section ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .summary-section ul li {
+            display: flex;
+            justify-content: space-between;
+            /* Ensures equal spacing */
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: #f5f7ff;
+        }
+        
+        .summary-section ul li span:first-child {
+            display: flex;
+            align-items: center;
+        }
+        
+        .summary-section ul li svg {
+            margin-right: 15px;
+        }
+        
+        .summary-section ul li:nth-child(1) {
+            background-color: hsl(0, 100%, 96%);
+            color: hsl(0, 100%, 65%);
+        }
+        
+        .summary-section ul li:nth-child(2) {
+            background-color: hsl(39, 100%, 95%);
+            color: hsl(39, 100%, 56%);
+        }
+        
+        .summary-section ul li:nth-child(3) {
+            background-color: hsl(166, 100%, 94%);
+            color: hsl(166, 100%, 37%);
+        }
+        
+        .summary-section ul li:nth-child(4) {
+            background-color: hsl(234, 85%, 96%);
+            color: hsl(234, 85%, 45%);
+        }
+        
+        .summary-section ul li span:last-child {
+            font-weight: bold;
+            color: black;
+        }
+        
+        .continue-btn {
+            padding: 20px 120px;
+            background-color: #363d69;
+            color: #fff;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        
+        .continue-btn:hover {
+            background-color: #292d4c;
+        }
+        
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                max-width: 100%;
+            }
+            .result-section {
+                padding: 20px;
+            }
+            .summary-section {
+                padding: 20px;
+            }
+            .continue-btn {
+                padding: 15px 100px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            .result-section {
+                padding: 15px;
+            }
+            .score-circle {
+                width: 120px;
+                height: 120px;
+            }
+            .score-circle h1 {
+                font-size: 36px;
+            }
+            .summary-section h3 {
+                font-size: 20px;
+            }
+            .summary-section ul li {
+                font-size: 14px;
+                padding: 10px;
+            }
+            .continue-btn {
+                padding: 10px 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Result Section -->
+        <div class="result-section">
+            <h2>Your Result</h2>
+            <div class="score-circle">
+                <h1>76</h1>
+                <p>out of 100</p>
+            </div>
+            <p class="result-text">Excellent! You've outperformed 65% of test takers.</p>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <h3>Summary</h3>
+            <ul>
+                <li>
+                    <span><img src="./assets/images/icon-reaction.svg" alt="reaction">Reaction</span>
+                    <span>80 / 100</span>
+                </li>
+                <li>
+                    <span><img src="./assets/images/icon-memory.svg" alt="memory">Memory</span>
+                    <span>92 / 100</span>
+                </li>
+                <li>
+                    <span><img src="./assets/images/icon-verbal.svg" alt="verbalicon">Verbal</span>
+                    <span>61 / 100</span>
+                </li>
+                <li>
+                    <span><img src="./assets/images/icon-visual.svg" alt="eye icon">Visual</span>
+                    <span>72 / 100</span>
+                </li>
+            </ul>
+            <button class="continue-btn">Continue</button>
+        </div>
+    </div>
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Saira Saeed</a>.
+    </div>
+</body>
+
+</html>
